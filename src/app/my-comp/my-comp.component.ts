@@ -37,4 +37,9 @@ export class MyCompComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  go() {
+    console.log("selected : " + this.selectedPokeId);
+  }
+
 }

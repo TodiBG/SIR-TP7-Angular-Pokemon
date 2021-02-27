@@ -12,23 +12,14 @@
 Pokemon : {{selectedPokeId}}   
 
 <br> <br>
+<input [(ngModel)]="fliterValue" type="text"> 
+<br>
 <select [(ngModel)]="selectedPokeId">
-    <option *ngFor="let poke of pokemons " [value]="poke.id" >
+    <option *ngFor="let poke of pokemons|filter:'nom':fliterValue " [value]="poke.id" >
       {{poke.nom}}
     </option>
 </select>
 
-
-<br>
-
-<h3> La liste des pokemons : </h3>
-
-Filtrer: <input [(ngModel)]="fliterValue" type="text">
-
-<ol>
-  <li *ngFor="let poke of pokemons|filter:'nom':fliterValue" >
-    {{poke.nom}}
-  </li>
-</ol>
+<button (click)="go()">  Go</button>
 
 
