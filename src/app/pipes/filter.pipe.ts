@@ -9,7 +9,7 @@ export class FilterPipe implements PipeTransform {
   transform(values: any[], pokeName: string, filterString: string): any[] {
     const res: any[] = [];
 
-    if (values.length === 0 || filterString.trim() === "" || pokeName.trim() === "") {
+    if (values.length === 0 || pokeName.trim() === ""|| filterString.trim() === "" ) {
       return values;
     }
 
