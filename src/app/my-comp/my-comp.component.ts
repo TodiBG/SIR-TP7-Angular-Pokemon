@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Pokemon } from '../models/pokemon';
+import { PokeService } from '../services/poke.service';
 
 @Component({
   selector: 'app-my-comp',
@@ -13,28 +14,25 @@ export class MyCompComponent implements OnInit {
   fliterValue: string  = "";
   
   pokemons: Pokemon[] = [
-    new Pokemon(1, "Pokelo"),
-    new Pokemon(2, "Pokeblack"),
-    new Pokemon(3, "Pokedous"),
-    new Pokemon(4, "Pokeucrus"),
-    new Pokemon(5, "Pokelio"),
-    new Pokemon(6, "Miopketo"),
-    new Pokemon(7, "Babul"),
-    new Pokemon(8, "Totcrus"),
-    new Pokemon(9, "spataus"),
-    new Pokemon(10, "keanin"),
-    new Pokemon(11, "Possiekan"),
-    new Pokemon(12, "Jeanopok"),
-    new Pokemon(13, "Yaopokedrol"),
   ]
 
 
-  constructor() {
+  constructor( private pokeService: PokeService) {
   }
   
 
 
   ngOnInit(): void {
+    this.pokeService.getPokemons().subscribe((data) => {
+      const res = data.results as any[];
+      
+      console.log(res.length +" pokémons")
+
+      res.forEach((e, index) => {
+        this.pokemons.push(new Pokemon(index+1,e.name, e.url));
+      });
+
+    } ) ;
   }
 
 
