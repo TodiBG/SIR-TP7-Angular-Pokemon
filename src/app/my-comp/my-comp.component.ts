@@ -9,7 +9,8 @@ import { Pokemon } from '../models/pokemon';
 export class MyCompComponent implements OnInit {
 
   id: string = "";
-  selectedPokeId:number = 0 ;
+  selectedPokeId: number = 0;
+  fliterValue: string  = "";
   
   pokemons: Pokemon[] = [
     new Pokemon(1, "Pokelo"),
@@ -17,7 +18,14 @@ export class MyCompComponent implements OnInit {
     new Pokemon(3, "Pokedous"),
     new Pokemon(4, "Pokeucrus"),
     new Pokemon(5, "Pokelio"),
-    new Pokemon(6, "Pokemoul"),
+    new Pokemon(6, "Miopketo"),
+    new Pokemon(7, "Babul"),
+    new Pokemon(8, "Totcrus"),
+    new Pokemon(9, "spataus"),
+    new Pokemon(10, "keanin"),
+    new Pokemon(11, "Possiekan"),
+    new Pokemon(12, "Jeanopok"),
+    new Pokemon(13, "Yaopokedrol"),
   ]
 
 
