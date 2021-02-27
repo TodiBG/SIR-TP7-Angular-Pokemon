@@ -9,6 +9,7 @@ import { Pokemon } from '../models/pokemon';
 export class MyCompComponent implements OnInit {
 
   id: string = "";
+  selectedPokeId:number = 0 ;
   
   pokemons: Pokemon[] = [
     new Pokemon(1, "Pokelo"),
@@ -20,7 +21,10 @@ export class MyCompComponent implements OnInit {
   ]
 
 
-  constructor() { }
+  constructor() {
+  }
+  
+
 
   ngOnInit(): void {
   }

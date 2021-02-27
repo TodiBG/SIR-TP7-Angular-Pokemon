@@ -7,3 +7,14 @@
 <br>
 <input [(ngModel)]="id">
 
+<br> <br>
+
+Pokemon selectionné : id : {{selectedPokeId}}   
+
+<br> <br>
+<select [(ngModel)]="selectedPokeId">
+    <option *ngFor="let poke of pokemons" [value]="poke.id">
+      {{poke.nom}}
+    </option>
+</select>
+
