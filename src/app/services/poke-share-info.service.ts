@@ -1,19 +1,21 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PokeShareInfoService {
-  value: string = ""; 
+  private value = new Subject<string>();
+  
   constructor() { }
 
 
-  getValue(): string{
+  getObservableValue(): Subject<string>{
     return this.value;
   }
 
   setValue(value: string) {
-    this.value = value;
+    this.value.next(value);
   }
 
 }

@@ -33,18 +33,16 @@ export class MyCompComponent implements OnInit {
       });
 
     });
-    
-
-   
 
   }
 
 
   go() {
-    this.pokeShareInfoService.setValue(this.selectedPokeId);
     this.pokeService.getPokemonInfos(this.selectedPokeId).subscribe((data) => {  
       this.pokeDetail = data;
     });
+    this.pokeShareInfoService.setValue(this.selectedPokeId);
+
   }
 
 }
