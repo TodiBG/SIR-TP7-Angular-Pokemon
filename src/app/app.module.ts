@@ -9,12 +9,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PokeService } from './services/poke.service';
 import {HttpClientModule } from '@angular/common/http'
 import { from } from 'rxjs';
+import { PokedetailComponent } from './pokedetail/pokedetail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MyCompComponent,
-    FilterPipe
+    FilterPipe,
+    PokedetailComponent
   ],
   imports: [
     BrowserModule,

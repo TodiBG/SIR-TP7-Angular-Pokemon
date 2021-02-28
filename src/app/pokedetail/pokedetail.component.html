@@ -1,0 +1,8 @@
+<div *ngIf="detail">
+    <h3> Pokémon selectionné  :  {{detail.name}} </h3>
+    <ul>
+      <li *ngFor="let ability of detail.abilities" >  
+         {{ability.ability.name}} 
+      </li>
+    </ul>
+</div>
