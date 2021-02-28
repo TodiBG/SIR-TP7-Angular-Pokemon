@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Pokemon, PokeDetail } from '../models/pokemon';
 import { PokeService } from '../services/poke.service';
+import { PokeShareInfoService } from '../services/poke-share-info.service';
 
 @Component({
   selector: 'app-my-comp',
@@ -16,8 +17,11 @@ export class MyCompComponent implements OnInit {
   pokemons: Pokemon[] = []
 
 
-  constructor(private pokeService: PokeService) {
-  }
+  constructor(
+    private pokeService: PokeService,
+    private pokeShareInfoService: PokeShareInfoService) {
+    
+    }
   
 
 
@@ -37,6 +41,7 @@ export class MyCompComponent implements OnInit {
 
 
   go() {
+    this.pokeShareInfoService.setValue(this.selectedPokeId);
     this.pokeService.getPokemonInfos(this.selectedPokeId).subscribe((data) => {  
       this.pokeDetail = data;
     });

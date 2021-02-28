@@ -10,6 +10,7 @@ import { PokeService } from './services/poke.service';
 import {HttpClientModule } from '@angular/common/http'
 import { from } from 'rxjs';
 import { PokedetailComponent } from './pokedetail/pokedetail.component';
+import { PokeShareInfoService } from './services/poke-share-info.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { PokedetailComponent } from './pokedetail/pokedetail.component';
     HttpClientModule
   ],
   providers: [
-    PokeService
+    PokeService,
+    PokeShareInfoService
   ],
   bootstrap: [AppComponent]
 })
