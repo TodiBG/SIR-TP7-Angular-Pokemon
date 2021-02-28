@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Pokemon } from '../models/pokemon';
+import { Pokemon, PokeDetail } from '../models/pokemon';
 import { PokeService } from '../services/poke.service';
 
 @Component({
@@ -10,34 +10,36 @@ import { PokeService } from '../services/poke.service';
 export class MyCompComponent implements OnInit {
 
   id: string = "";
-  selectedPokeId: number = 0;
-  fliterValue: string  = "";
-  
-  pokemons: Pokemon[] = [
-  ]
+  selectedPokeId: string = "";
+  fliterValue: string = "";
+  pokeDetail: PokeDetail|any; 
+  pokemons: Pokemon[] = []
 
 
-  constructor( private pokeService: PokeService) {
+  constructor(private pokeService: PokeService) {
   }
   
 
 
   ngOnInit(): void {
     this.pokeService.getPokemons().subscribe((data) => {
-      const res = data.results as any[];
-      
-      console.log(res.length +" pokémons")
-
-      res.forEach((e, index) => {
-        this.pokemons.push(new Pokemon(index+1,e.name, e.url));
+      data.results.forEach((e, index) => {
+        const i = index + 1;
+        this.pokemons.push(new Pokemon(""+i, e.name, e.url));
       });
 
-    } ) ;
+    });
+    
+
+   
+
   }
 
 
   go() {
-    console.log("selected : " + this.selectedPokeId);
+    this.pokeService.getPokemonInfos(this.selectedPokeId).subscribe((data) => {  
+      this.pokeDetail = data;
+    });
   }
 
 }

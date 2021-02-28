@@ -16,10 +16,19 @@ Pokemon : {{selectedPokeId}}
 <br>
 <select [(ngModel)]="selectedPokeId">
     <option *ngFor="let poke of pokemons|filter:'nom':fliterValue " [value]="poke.id" >
-      {{poke.nom}}
+      {{poke.name}}
     </option>
 </select>
 
 <button (click)="go()">  Go</button>
+
+<div *ngIf="pokeDetail">
+  <h3> Pokémon selectionné  :  {{pokeDetail.name}} </h3>
+  <ul>
+    <li *ngFor="let ability of pokeDetail.abilities" >  
+       {{ability.ability.name}} 
+    </li>
+  </ul>
+</div>
 
 
